@@ -2,12 +2,13 @@ pipeline {
     agent none
     stages {
         stage("docker run") {
-            steps {
-                agent {
-                    dockerfile {
-                        label 'deolho-packages'
-                    }
+            agent {
+                dockerfile {
+                    label 'deolho-packages'
                 }
+            }
+            steps {
+                echo "docker run"
             }
         }
     }
