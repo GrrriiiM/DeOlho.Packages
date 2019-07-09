@@ -5,4 +5,11 @@ pipeline {
             args '-d --name deolho-packages -p 10000:80'
         }
     }
+    stages {
+        stage('Build') {
+            steps {
+                echo "test"
+            }
+        }
+    }
 }
