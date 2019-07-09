@@ -1,13 +1,8 @@
 pipeline {
-    agent none
-    stages {
-        stage("docker run") {
-            agent {
-                dockerfile true
-            }
-            steps {
-                echo "docker run"
-            }
+    agent {
+        docker {
+            image 'loicsharma/baget:latest'
+            args '-d --name deolho-packages -p 10000:80'
         }
     }
 }
