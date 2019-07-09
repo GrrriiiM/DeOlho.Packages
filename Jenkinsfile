@@ -1,13 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('Docker build') {
+        stage('Docker-compose up') {
             steps {
                 script {
                     if (isUnix()) {
-                        sh 'docker build -rm --name deolho-packages -p 10000:80 loicsharma/baget:latest'
+                        sh 'docker-compose up -d'
                     } else {
-                        bat('docker build -rm --name deolho-packages -p 10000:80 loicsharma/baget:latest')
+                        bat('docker-compose up -d')
                     }
                 }
             }
