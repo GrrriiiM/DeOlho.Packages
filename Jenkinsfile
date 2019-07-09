@@ -1,8 +1,4 @@
 pipeline {
-    agent { dockerfile true }
-    stages('Dockerfile') {
-        steps {
-            echo 'Dockerfile'
-        }
-    }
+    agent none
+    docker.build("DeOlho/Packages:${env.BUILD_ID}")
 }
