@@ -3,9 +3,7 @@ pipeline {
     stages {
         stage("docker run") {
             agent {
-                dockerfile {
-                    label 'deolho-packages'
-                }
+                dockerfile true
             }
             steps {
                 echo "docker run"
