@@ -1,14 +1,15 @@
 pipeline {
-    agent {
-        docker {
-            image 'loicsharma/baget:latest'
-            args '-d --name deolho-packages -p 10000:80'
-        }
-    }
+    agent none
     stages {
-        stage('Build') {
+        stage('Docker build') {
             steps {
-                echo "test"
+                script {
+                    if (isUnix()) {
+                        sh 'docker build -d --name deolho-packages -p 10000:80 loicsharma/baget:latest'
+                    } else {
+                        bat('docker build -d --name deolho-packages -p 10000:80 loicsharma/baget:latest')
+                    }
+                }
             }
         }
     }
