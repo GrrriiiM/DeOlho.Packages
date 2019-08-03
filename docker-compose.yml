@@ -3,6 +3,7 @@ version: '3'
 services:
   deolho-packages:
     image: loicsharma/baget:latest
+    restart: unless-stopped
     ports:
       - "10000:80"
     env_file:
